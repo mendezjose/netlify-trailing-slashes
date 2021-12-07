@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const page = path.resolve(`./src/templates/page.js`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -56,6 +57,38 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+
+  const pages = [
+    {
+      id: 1,
+      slug: {
+        current: "about",
+      },
+    },
+    {
+      id: 2,
+      slug: {
+        current: "contact",
+      },
+    },
+    {
+      id: 3,
+      slug: {
+        current: "faq",
+      },
+    },
+  ]
+
+  pages.forEach(({ node }) => {
+    createPage({
+      path: `${node.slug.current}`,
+      component: page,
+      context: {
+        id: node.id,
+        pageId: node.id,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
