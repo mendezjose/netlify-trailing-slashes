@@ -79,7 +79,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     },
   ]
 
-  pages.forEach(({ node }) => {
+  pages.forEach(node => {
     createPage({
       path: `${node.slug.current}`,
       component: page,
