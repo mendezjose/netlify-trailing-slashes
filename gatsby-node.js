@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     {
       id: 1,
       slug: {
-        current: "about",
+        current: "about/",
       },
     },
     {
