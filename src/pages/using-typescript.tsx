@@ -11,7 +11,7 @@ type DataProps = {
   }
 }
 
-//
+// Comment
 
 const UsingTypescript: React.FC<PageProps<DataProps>> = ({
   data,
